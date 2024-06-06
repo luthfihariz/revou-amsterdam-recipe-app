@@ -1,0 +1,41 @@
+tags:
+  - Recipes
+parameters:
+  - name: headers
+    in: header
+    name: Authorization
+    schema:
+      type: string
+      description: token
+    required: true
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object  
+      id: Recipe
+      properties:
+        recipe:
+          type: object
+          description: The recipe to create
+          properties:
+            name:
+              type: string
+              description: The name of the recipe
+            ingredients:
+              type: array
+              description: The ingredients of the recipe
+              items:
+                type: string
+                description: The ingredient
+            steps:
+              type: array
+              description: The steps of the recipe
+              items:
+                type: string
+                description: The step
+responses:
+  201:
+    description: Recipe created
+  400:
+    description: Recipe required
